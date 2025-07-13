@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 Portfolio Website
 
-## Getting Started
+This is a modern, responsive portfolio website built with [Next.js](https://nextjs.org/), Tailwind CSS and Motion. It showcases your skills, experience, and projects with beautiful animations and interactive UI components.
 
-First, run the development server:
+## ✨ Features
+
+- Animated intro and header
+- About section with skills and tech stack
+- Timeline for professional experience
+- Projects showcase
+- Contact section
+- Responsive design for all devices
+- Framer Motion animations
+
+## 🛠️ Tech Stack
+
+- Next.js (App Router)
+- React
+- Tailwind CSS
+- Framer Motion
+- React Icons
+
+## 📦 Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/portfolio.git
+cd portfolio
+```
+
+Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+## 🏃‍♂️ Running Locally
+
+Start the development server:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📝 Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Update your information in `src/utils/constants.js` (tech stack, experience, projects, etc.)
+- Customize components in `src/components/`
+- Edit global styles in `src/app/globals.css`
 
-## Learn More
+## 📁 Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `src/app/` - Main app entry, global styles
+- `src/components/` - UI components (Intro, Header, About, Experience, Timeline, etc.)
+- `src/utils/constants.js` - Data for tech stack, experience, navigation
+- `public/` - Static assets (images, icons)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+You can deploy this project easily on [Vercel](https://vercel.com/) or any platform supporting Next.js.
 
-## Deploy on Vercel
+## 🙏 Credits
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Icons](https://react-icons.github.io/react-icons/)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Feel free to fork, customize, and share your own portfolio!
