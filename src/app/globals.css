@@ -6,7 +6,13 @@
 }
 @layer utilities {
   .buttonStyle {
-    @apply bg-gradient-to-r from-fuchsia-400 via-fuchsia-500 to-cyan-500 text-white px-6 py-2 rounded-full hover:from-fuchsia-600 hover:to-cyan-600 transition-colors;
+    @apply bg-gradient-to-r from-fuchsia-400 via-fuchsia-500 to-cyan-500 text-white px-6 py-2 rounded-full hover:from-fuchsia-600 hover:to-cyan-600 transition-colors cursor-pointer;
+  }
+  .sectionContainer {
+    @apply w-full min-h-50 px-10 md:px-20 py-5;
+  }
+  .sectionHeader {
+    @apply text-neutral-200 text-4xl font-bold;
   }
 }
 

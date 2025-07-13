@@ -5,12 +5,9 @@ import DeveloperIllustration from "../Shared/DeveloperIllustration";
 
 const About = () => {
   return (
-    <div
-      id="about"
-      className="w-full min-h-screen px-10 md:px-20 py-5 bg-black"
-    >
-      <h1 className="text-neutral-200 text-4xl font-bold">About Me</h1>
-      <div className="flex justify-between ">
+    <div id="about" className="sectionContainer bg-black">
+      <h1 className="sectionHeader">About Me</h1>
+      <div className="flex flex-col md:flex-row justify-center md:justify-between items-center ">
         <motion.div
           initial={{ x: -20, opacity: 0 }}
           whileInView={{
@@ -64,7 +61,7 @@ const About = () => {
             }}
             viewport={{ once: true }}
             // transition={{ duration: 0.3, delay: 1.1 }}
-            className="text-neutral-400 text-md mt-4"
+            className="text-neutral-400 text-md mt-4 hidden md:block"
           >
             My journey in software development has been driven by a passion for
             technology and a desire to create impactful solutions. I thrive in
@@ -82,7 +79,7 @@ const About = () => {
             }}
             viewport={{ once: true }}
             // transition={{ duration: 0.3, delay: 1.4 }}
-            className="text-neutral-400 text-md mt-4"
+            className="text-neutral-400 text-md mt-4 hidden md:block  "
           >
             Outside of coding, I enjoy exploring new technologies, contributing
             to open-source projects, and staying updated with industry trends. I
@@ -98,7 +95,7 @@ const About = () => {
         I specialize in a wide range of technologies, including:
       </p>
 
-      <div className="grid grid-cols-3 md:grid-cols-6 gap-4 justify-between pt-5">
+      <div className="grid grid-cols-3 md:grid-cols-7 gap-4 justify-between pt-5">
         {techStack.map((tech, idx) => (
           <motion.div
             key={idx}

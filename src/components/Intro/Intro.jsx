@@ -1,14 +1,16 @@
 import React from "react";
 import { motion } from "motion/react";
+import Link from "next/link";
 
 const Intro = () => {
   function handlePdfDownload() {
-    const link = document.createElement("a");
-    link.href = "/Nitesh_Kumar_Rai_Resume_FS_2025.pdf";
-    link.download = "Nitesh_Kumar_Rai_Resume_FS_2025.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open("/Nitesh_Kumar_Rai_Resume_FS_2025.pdf", "_blank");
+    // const link = document.createElement("a");
+    // link.href = "/Nitesh_Kumar_Rai_Resume_FS_2025.pdf";
+    // link.download = "Nitesh_Kumar_Rai_Resume_FS_2025.pdf";
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
   }
 
   return (
@@ -64,9 +66,9 @@ const Intro = () => {
                   ease: "easeInOut",
                 }}
                 className="buttonStyle"
-                // onClick={handlePdfDownload}
+                onClick={handlePdfDownload}
               >
-                Download resume
+                Download Resume
               </motion.button>
               <motion.button
                 initial={{ x: 20, opacity: 0 }}
@@ -79,7 +81,7 @@ const Intro = () => {
                 }}
                 className="buttonStyle"
               >
-                Know more
+                <Link href="#about">Know More</Link>
               </motion.button>
             </div>
           </div>

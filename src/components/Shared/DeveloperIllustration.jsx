@@ -960,7 +960,7 @@ export default function DeveloperIllustration() {
               <motion.path
                 animate={{ rotate: [5, 0, -5, 5] }}
                 transition={{
-                  duration: 1,
+                  duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                   repeatType: "loop",
@@ -974,7 +974,7 @@ export default function DeveloperIllustration() {
               <motion.path
                 animate={{ rotate: [5, 0, -5, 5] }}
                 transition={{
-                  duration: 1,
+                  duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                   repeatType: "loop",
@@ -993,7 +993,7 @@ export default function DeveloperIllustration() {
               <motion.path
                 animate={{ rotate: [-5, 0, 5, -5] }}
                 transition={{
-                  duration: 1,
+                  duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                   repeatType: "loop",
@@ -1008,7 +1008,7 @@ export default function DeveloperIllustration() {
               <motion.path
                 animate={{ rotate: [-5, 0, 5, -5] }}
                 transition={{
-                  duration: 1,
+                  duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut",
                   repeatType: "loop",

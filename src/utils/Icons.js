@@ -10,6 +10,8 @@ import DockerIcon from "../../public/docker-svgrepo-com.svg";
 import PythonIcon from "../../public/python-svgrepo-com.svg";
 import ExpressIcon from "../../public/express-svgrepo-com.svg";
 import NextJSIcon from "../../public/next-js-svgrepo-com.svg";
+import HTMLIcon from "../../public/html-5-svgrepo-com.svg";
+import CSSIcon from "../../public/css3-svgrepo-com.svg";
 import UserIcon from "../../public/boy.png";
 
 export {
@@ -26,4 +28,6 @@ export {
   PythonIcon,
   ExpressIcon,
   UserIcon,
+  HTMLIcon,
+  CSSIcon,
 };
