@@ -25,7 +25,7 @@ This is a modern, responsive portfolio website built with [Next.js](https://next
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/portfolio.git
+git clone https://github.com/Niteshh-K/portfolio.git
 cd portfolio
 ```
 
@@ -75,4 +75,3 @@ You can deploy this project easily on [Vercel](https://vercel.com/) or any platf
 
 ---
 
-Feel free to fork, customize, and share your own portfolio!
