@@ -60,7 +60,7 @@ export const navItems = [
 
 export const experienceData = [
   {
-    from: "2024",
+    from: "July, 2022",
     to: "Present",
     role: "Full Stack Developer",
     company: "Tata Consultancy Services",

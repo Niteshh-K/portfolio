@@ -1,0 +1,217 @@
+import React from "react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "motion/react";
+import { PiInstagramLogo } from "react-icons/pi";
+import {
+  EmailIcon,
+  GitHubIcon,
+  InstrgramIcon,
+  LinkedInIcon,
+} from "@/utils/Icons";
+import Image from "next/image";
+import { animate } from "motion";
+
+const Contact = () => {
+  const containerRef = React.useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  const opacityTransform = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    [0, 1, 0]
+  );
+  const rotateTransform = useTransform(scrollYProgress, [0, 1], [-30, 30]);
+  const transformY = useTransform(scrollYProgress, [0, 1], ["50%", "-50%"]);
+
+  const startAnimating = async () => {
+    animate(".buttonText", { display: "none" }, { duration: 0.1 });
+    await animate(
+      ".sendButton",
+      { width: "2.75rem", height: "2.75rem", borderRadius: "50%" },
+      { duration: 0.3, ease: "easeInOut" }
+    );
+    await animate(
+      ".sendButton",
+      { scale: [0.8, 1.2, 0.8, 1], background: "var(--color-green-500)" },
+      { duration: 0.5, ease: "easeInOut" }
+    );
+    animate(".check-icon", { opacity: 1 }, { duration: 0.1 });
+    await animate(
+      ".check-icon path",
+      { pathLength: 1 },
+      { duration: 0.5, ease: "easeInOut" }
+    );
+    animate(
+      ".sendButton",
+      {
+        width: "30rem",
+        borderRadius: "4px",
+        background: "var(--color-fuchsia-500)",
+      },
+      { duration: 0.3, ease: "easeInOut" }
+    );
+    animate(".buttonText", { display: "block" }, { duration: 0.1 });
+    animate(".check-icon", { opacity: 0 });
+    await animate(".check-icon path", { pathLength: 0 });
+  };
+
+  // EmailJS dummy integration
+  const [form, setForm] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    inquiry: "",
+    message: "",
+  });
+  const [status, setStatus] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setStatus("");
+
+    setTimeout(() => {
+      setLoading(false);
+      setStatus("Message sent successfully ");
+      setForm({ name: "", email: "", phone: "", inquiry: "", message: "" });
+    }, 1200);
+
+    // emailjs.send('service_xxx', 'template_xxx', form, 'user_xxx')
+    //   .then(() => { setStatus('Message sent!'); ... })
+    //   .catch(() => { setStatus('Error sending message'); ... })
+  };
+
+  return (
+    <div
+      ref={containerRef}
+      id="#contact"
+      className="sectionContainer bg-black h-screen"
+    >
+      <div className="sectionHeader">Contact me</div>
+      <motion.div
+        style={{
+          rotateZ: rotateTransform,
+          opacity: opacityTransform,
+          y: transformY,
+        }}
+        className="mx-auto w-full md:w-[30%] rounded-xl bg-neutral-900 p-6 min-h-150 h-auto overflow-hidden mt-30  flex flex-col gap-4  border border-neutral-800 shadow-[0px_0px_12px_0px_#f7fafc]"
+      >
+        <form className="flex flex-col gap-4" onSubmit={sendEmail}>
+          <input
+            type="text"
+            placeholder="Name"
+            className="inputStyle text-lg py-3"
+            value={form.name}
+            onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+            required
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="inputStyle text-lg py-3"
+            value={form.email}
+            onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+            required
+          />
+          <input
+            type="tel"
+            placeholder="Phone (optional)"
+            className="inputStyle text-lg py-3"
+            value={form.phone}
+            onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+          />
+          <select
+            className="inputStyle text-lg py-3"
+            value={form.inquiry}
+            onChange={(e) =>
+              setForm((f) => ({ ...f, inquiry: e.target.value }))
+            }
+            required
+          >
+            <option value="">Inquiry Type</option>
+            <option value="general">General</option>
+            <option value="collaboration">Collaboration</option>
+            <option value="feedback">Feedback</option>
+            <option value="other">Other</option>
+          </select>
+          <textarea
+            placeholder="Message"
+            rows={5}
+            className="inputStyle text-lg py-3 resize-none"
+            value={form.message}
+            onChange={(e) =>
+              setForm((f) => ({ ...f, message: e.target.value }))
+            }
+            required
+          />
+          <div className="relative w-[30rem] flex justify-center items-center py-3">
+            <motion.button
+              type="submit"
+              className="sendButton buttonStyle text-lg "
+              style={{ width: "30rem" }}
+              disabled={loading}
+              onClick={startAnimating}
+            >
+              <span className="buttonText">Send Message</span>
+            </motion.button>
+            <motion.svg
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="#FFFFFF"
+              strokeWidth="{3}"
+              className="check-icon h-8 w-8 absolute inset-0 m-auto z-50 pointer-events-none"
+              style={{ opacity: 0 }}
+            >
+              <motion.path
+                initial={{ pathLength: 0 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M5 13l4 4L19 7"
+              />
+            </motion.svg>
+          </div>
+        </form>
+        <div className="flex justify-center gap-6 pt-4">
+          <a
+            href="https://www.linkedin.com/in/nitesh-kumar-rai-397241193/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+          >
+            <Image
+              src={LinkedInIcon.src}
+              alt="LinkedIn"
+              width={28}
+              height={28}
+            />
+          </a>
+          <a href="mailto:niten701rai@gmail.com" aria-label="Email">
+            <Image src={EmailIcon.src} alt="Email" width={28} height={28} />
+          </a>
+
+          <a
+            className="bg-neutral-100 rounded-sm"
+            href="https://github.com/Niteshh-K"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Twitter"
+          >
+            <Image src={GitHubIcon.src} alt="Github" width={28} height={28} />
+          </a>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default Contact;

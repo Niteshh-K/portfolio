@@ -15,7 +15,7 @@ const Intro = () => {
 
   return (
     <div className="flex justify-between">
-      <div className="h-screen bg-neutral-800  w-full min-h-50 p-10 md:p-20 flex flex-col justify-center ">
+      <div className="h-screen bg-neutral-900  w-full min-h-50 p-10 md:p-20 flex flex-col justify-center ">
         <div className="flex gap-2 mt-7 mx-auto md:mx-0">
           <div className=" flex flex-col gap-2 mt-1.5 items-center">
             <span className="w-2 h-2 rounded-full bg-fuchsia-500"></span>

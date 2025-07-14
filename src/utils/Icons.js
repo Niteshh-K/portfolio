@@ -13,6 +13,11 @@ import NextJSIcon from "../../public/next-js-svgrepo-com.svg";
 import HTMLIcon from "../../public/html-5-svgrepo-com.svg";
 import CSSIcon from "../../public/css3-svgrepo-com.svg";
 import UserIcon from "../../public/boy.png";
+import InstrgramIcon from "../../public/instagram-1-svgrepo-com.svg";
+import LinkedInIcon from "../../public/linkedin-icon-svgrepo-com.svg";
+import GitHubIcon from "../../public/github-svgrepo-com.svg";
+// import TwitterIcon from "../../public/twitter.svg";
+import EmailIcon from "../../public/email-icon.png";
 
 export {
   JSIcons,
@@ -30,4 +35,8 @@ export {
   UserIcon,
   HTMLIcon,
   CSSIcon,
+  InstrgramIcon,
+  LinkedInIcon,
+  GitHubIcon,
+  EmailIcon,
 };
