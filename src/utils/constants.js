@@ -65,7 +65,10 @@ export const experienceData = [
     role: "Full Stack Developer",
     company: "Tata Consultancy Services",
     projects: [
-      <ul className="list-disc pl-6 space-y-2 text-base text-neutral-200">
+      <ul
+        key="tcs-projects-list"
+        className="list-disc pl-6 space-y-2 text-base text-neutral-200"
+      >
         <li key="reporting-system">
           Built an efficient{" "}
           <span className="font-bold text-cyan-300">reporting system</span> for
