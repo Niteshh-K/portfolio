@@ -66,7 +66,7 @@ export const experienceData = [
     company: "Tata Consultancy Services",
     projects: [
       <ul className="list-disc pl-6 space-y-2 text-base text-neutral-200">
-        <li>
+        <li key="reporting-system">
           Built an efficient{" "}
           <span className="font-bold text-cyan-300">reporting system</span> for
           advisory adoption, time-series trends, and efficiency, providing{" "}
@@ -77,7 +77,7 @@ export const experienceData = [
           </span>{" "}
           and boost revenue.
         </li>
-        <li>
+        <li key="equipment-health-monitoring">
           Designed a full-stack{" "}
           <span className="font-bold text-cyan-300">
             Equipment Health Monitoring System
@@ -87,7 +87,7 @@ export const experienceData = [
           Developed an intuitive interface and strong back-end to provide
           real-time insights for maintenance.
         </li>
-        <li>
+        <li key="product-simulation-ui">
           Built a{" "}
           <span className="font-bold text-cyan-300">
             UI for product simulation
@@ -97,19 +97,19 @@ export const experienceData = [
           <span className="font-bold text-cyan-300">carbon footprint</span> of
           the final product.
         </li>
-        <li>
+        <li key="open-source-models-ui">
           Developed a{" "}
           <span className="font-bold text-cyan-300">
             UI for open-source approved models
           </span>
           , allowing users to register, access, and interact with them easily.
-          The platform provides key details like the model's{" "}
+          The platform provides key details like the model&apos;s{" "}
           <span className="font-bold text-cyan-300">
             purpose, size, and specs
           </span>
           , and the URL can be used for integration anywhere.
         </li>
-        <li>
+        <li key="code-generator-ui">
           Developed a{" "}
           <span className="font-bold text-cyan-300">code generator UI</span>{" "}
           that takes user prompts and writes code in various programming
@@ -121,7 +121,7 @@ export const experienceData = [
           <span className="font-bold text-cyan-300">voice-to-text feature</span>
           .
         </li>
-        <li>
+        <li key="data-generation-training-ui">
           Created a{" "}
           <span className="font-bold text-cyan-300">
             UI for data generation and model training
@@ -130,7 +130,7 @@ export const experienceData = [
           <span className="font-bold text-cyan-300">hyperparameters</span>, and
           tests the results to evaluate the effectiveness of the trained models.
         </li>
-        <li>
+        <li key="ai-media-summarization">
           Developing an{" "}
           <span className="font-bold text-cyan-300">
             AI-powered document and media summarization platform
