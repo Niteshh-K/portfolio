@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 export default function DeveloperIllustration() {
   return (
-    <div className="w-[400px] h-[400px] ">
+    <div className="w-full h-full md:w-[400px] md:h-[400px]">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
         <g id="freepik--Floor--inject-153">
           <ellipse

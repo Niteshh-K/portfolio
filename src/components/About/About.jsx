@@ -21,7 +21,7 @@ const About = () => {
             transition: { duration: 0.3, ease: "easeInOut", delay: 0.5 },
           }}
           viewport={{ once: true }}
-          className="w-full  mt-10 flex-2/3"
+          className="mt-10 w-full overflow-hidden md:flex-2/3"
         >
           <DeveloperIllustration />
         </motion.div>

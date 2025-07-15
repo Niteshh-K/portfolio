@@ -47,13 +47,13 @@ export const navItems = [
     icon: <PiInfoBold style={{ fontSize: "1.5em" }} />,
   },
   {
-    label: "Projects",
-    href: "/projects",
+    label: "Experience",
+    href: "/#experience",
     icon: <PiPresentationBold style={{ fontSize: "1.5em" }} />,
   },
   {
     label: "Contact",
-    href: "/contact",
+    href: "#contact",
     icon: <RiContactsBookLine style={{ fontSize: "1.5em", fontWeight: 1 }} />,
   },
 ];

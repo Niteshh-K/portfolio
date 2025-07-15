@@ -37,7 +37,7 @@ const Contact = () => {
     animate(
       ".sendButton",
       {
-        width: "30rem",
+        width: "15rem",
         borderRadius: "4px",
         background: "var(--color-fuchsia-500)",
       },
@@ -68,7 +68,7 @@ const Contact = () => {
     animate(
       ".sendButton",
       {
-        width: "30rem",
+        width: "15rem",
         borderRadius: "4px",
         background: "var(--color-fuchsia-500)",
       },
@@ -122,26 +122,26 @@ const Contact = () => {
     <div
       ref={containerRef}
       id="#contact"
-      className="sectionContainer bg-black h-screen"
+      className="sectionContainer bg-black h-screen flex flex-col justify-center items-center"
     >
-      <div className="sectionHeader">Contact me</div>
+      <div className="sectionHeader text-left w-full">Contact me</div>
       <motion.div
         style={{
           rotateZ: rotateTransform,
           opacity: opacityTransform,
           y: transformY,
         }}
-        className="mx-auto w-full md:w-[30%] rounded-xl bg-neutral-900 p-6 min-h-150 h-auto overflow-hidden mt-30  flex flex-col gap-4  border border-neutral-800 shadow-[0px_0px_12px_0px_#f7fafc]"
+        className="flex items-center justify-center w-full h-full"
       >
         <form
           ref={formRef}
-          className="flex flex-col gap-4"
+          className="md:w-[30%] rounded-xl bg-neutral-900 p-6 flex flex-col gap-4 border border-neutral-800 shadow-[0px_0px_12px_0px_#f7fafc]"
           onSubmit={sendEmail}
         >
           <input
             type="text"
             placeholder="Name"
-            className="inputStyle text-lg py-3"
+            className="inputStyle "
             name="name"
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
@@ -151,7 +151,7 @@ const Contact = () => {
             type="email"
             placeholder="Email"
             name="email"
-            className="inputStyle text-lg py-3"
+            className="inputStyle "
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
             required
@@ -160,12 +160,12 @@ const Contact = () => {
             type="tel"
             name="phone"
             placeholder="Phone (optional)"
-            className="inputStyle text-lg py-3"
+            className="inputStyle "
             value={form.phone}
             onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
           />
           <select
-            className="inputStyle text-lg py-3"
+            className="inputStyle "
             value={form.inquiry}
             name="inquiry_type"
             onChange={(e) =>
@@ -183,18 +183,18 @@ const Contact = () => {
             placeholder="Message"
             rows={5}
             name="message"
-            className="inputStyle text-lg py-3 resize-none"
+            className="inputStyle  resize-none"
             value={form.message}
             onChange={(e) =>
               setForm((f) => ({ ...f, message: e.target.value }))
             }
             required
           />
-          <div className="relative w-[30rem] flex justify-center items-center py-3">
+          <div className="relative mx-auto w-[15rem] flex justify-center items-center py-3">
             <motion.button
               type="submit"
               className="sendButton buttonStyle text-lg flex items-center justify-center relative"
-              style={{ width: "30rem" }}
+              style={{ width: "15rem" }}
               disabled={loading}
             >
               <span className="buttonText">
@@ -224,35 +224,35 @@ const Contact = () => {
               />
             </motion.svg>
           </div>
-        </form>
-        <div className="flex justify-center gap-6 pt-4">
-          <a
-            href="https://www.linkedin.com/in/nitesh-kumar-rai-397241193/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="LinkedIn"
-          >
-            <Image
-              src={LinkedInIcon.src}
-              alt="LinkedIn"
-              width={28}
-              height={28}
-            />
-          </a>
-          <a href="mailto:niten701rai@gmail.com" aria-label="Email">
-            <Image src={EmailIcon.src} alt="Email" width={28} height={28} />
-          </a>
+          <div className="flex justify-center gap-6 pt-4">
+            <a
+              href="https://www.linkedin.com/in/nitesh-kumar-rai-397241193/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+            >
+              <Image
+                src={LinkedInIcon.src}
+                alt="LinkedIn"
+                width={28}
+                height={28}
+              />
+            </a>
+            <a href="mailto:niten701rai@gmail.com" aria-label="Email">
+              <Image src={EmailIcon.src} alt="Email" width={28} height={28} />
+            </a>
 
-          <a
-            className="bg-neutral-100 rounded-sm"
-            href="https://github.com/Niteshh-K"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Twitter"
-          >
-            <Image src={GitHubIcon.src} alt="Github" width={28} height={28} />
-          </a>
-        </div>
+            <a
+              className="bg-neutral-100 rounded-sm"
+              href="https://github.com/Niteshh-K"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Twitter"
+            >
+              <Image src={GitHubIcon.src} alt="Github" width={28} height={28} />
+            </a>
+          </div>
+        </form>
       </motion.div>
     </div>
   );
