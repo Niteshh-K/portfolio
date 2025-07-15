@@ -1,22 +1,13 @@
 import React from "react";
-import {
-  motion,
-  useMotionValueEvent,
-  useScroll,
-  useTransform,
-} from "motion/react";
-import { PiInstagramLogo } from "react-icons/pi";
-import {
-  EmailIcon,
-  GitHubIcon,
-  InstrgramIcon,
-  LinkedInIcon,
-} from "@/utils/Icons";
+import { motion, useScroll, useTransform } from "motion/react";
+import { EmailIcon, GitHubIcon, LinkedInIcon } from "@/utils/Icons";
 import Image from "next/image";
 import { animate } from "motion";
+import emailjs from "@emailjs/browser";
 
 const Contact = () => {
   const containerRef = React.useRef(null);
+  const formRef = React.useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -30,6 +21,31 @@ const Contact = () => {
   );
   const rotateTransform = useTransform(scrollYProgress, [0, 1], [-30, 30]);
   const transformY = useTransform(scrollYProgress, [0, 1], ["50%", "-50%"]);
+
+  const failAnimating = async () => {
+    await animate(".buttonText", { opacity: 0 }, { duration: 0.1 });
+    animate(".failedText", { opacity: 1 }, { duration: 0.1 });
+    await animate(
+      ".sendButton",
+      {
+        width: "7rem",
+        height: "2.5rem",
+        background: "#dc2626",
+      },
+      { duration: 0.3, ease: "easeInOut" }
+    );
+    animate(
+      ".sendButton",
+      {
+        width: "30rem",
+        borderRadius: "4px",
+        background: "var(--color-fuchsia-500)",
+      },
+      { duration: 0.3, ease: "easeInOut", delay: 2 }
+    );
+    await animate(".failedText", { opacity: 0 }, { duration: 0.1, delay: 2 });
+    animate(".buttonText", { opacity: 1 }, { duration: 0.1 });
+  };
 
   const startAnimating = async () => {
     animate(".buttonText", { display: "none" }, { duration: 0.1 });
@@ -56,14 +72,13 @@ const Contact = () => {
         borderRadius: "4px",
         background: "var(--color-fuchsia-500)",
       },
-      { duration: 0.3, ease: "easeInOut" }
+      { duration: 0.3, ease: "easeInOut", delay: 2 }
     );
-    animate(".buttonText", { display: "block" }, { duration: 0.1 });
+    animate(".buttonText", { display: "block" }, { duration: 0.1, delay: 2 });
     animate(".check-icon", { opacity: 0 });
-    await animate(".check-icon path", { pathLength: 0 });
+    await animate(".check-icon path", { pathLength: 0, delay: 2 });
   };
 
-  // EmailJS dummy integration
   const [form, setForm] = React.useState({
     name: "",
     email: "",
@@ -79,15 +94,28 @@ const Contact = () => {
     setLoading(true);
     setStatus("");
 
-    setTimeout(() => {
-      setLoading(false);
-      setStatus("Message sent successfully ");
-      setForm({ name: "", email: "", phone: "", inquiry: "", message: "" });
-    }, 1200);
-
-    // emailjs.send('service_xxx', 'template_xxx', form, 'user_xxx')
-    //   .then(() => { setStatus('Message sent!'); ... })
-    //   .catch(() => { setStatus('Error sending message'); ... })
+    emailjs
+      .sendForm(
+        process.env.NEXT_PUBLIC_SERVICE_ID,
+        process.env.NEXT_PUBLIC_TEMPLATE_ID,
+        formRef.current,
+        {
+          publicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+        }
+      )
+      .then(
+        () => {
+          setLoading(false);
+          setStatus("Message sent successfully");
+          setForm({ name: "", email: "", phone: "", inquiry: "", message: "" });
+          startAnimating();
+        },
+        (error) => {
+          setLoading(false);
+          setStatus("Failed to send message. Please try again.");
+          failAnimating();
+        }
+      );
   };
 
   return (
@@ -105,11 +133,16 @@ const Contact = () => {
         }}
         className="mx-auto w-full md:w-[30%] rounded-xl bg-neutral-900 p-6 min-h-150 h-auto overflow-hidden mt-30  flex flex-col gap-4  border border-neutral-800 shadow-[0px_0px_12px_0px_#f7fafc]"
       >
-        <form className="flex flex-col gap-4" onSubmit={sendEmail}>
+        <form
+          ref={formRef}
+          className="flex flex-col gap-4"
+          onSubmit={sendEmail}
+        >
           <input
             type="text"
             placeholder="Name"
             className="inputStyle text-lg py-3"
+            name="name"
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
             required
@@ -117,6 +150,7 @@ const Contact = () => {
           <input
             type="email"
             placeholder="Email"
+            name="email"
             className="inputStyle text-lg py-3"
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
@@ -124,6 +158,7 @@ const Contact = () => {
           />
           <input
             type="tel"
+            name="phone"
             placeholder="Phone (optional)"
             className="inputStyle text-lg py-3"
             value={form.phone}
@@ -132,6 +167,7 @@ const Contact = () => {
           <select
             className="inputStyle text-lg py-3"
             value={form.inquiry}
+            name="inquiry_type"
             onChange={(e) =>
               setForm((f) => ({ ...f, inquiry: e.target.value }))
             }
@@ -146,6 +182,7 @@ const Contact = () => {
           <textarea
             placeholder="Message"
             rows={5}
+            name="message"
             className="inputStyle text-lg py-3 resize-none"
             value={form.message}
             onChange={(e) =>
@@ -156,12 +193,19 @@ const Contact = () => {
           <div className="relative w-[30rem] flex justify-center items-center py-3">
             <motion.button
               type="submit"
-              className="sendButton buttonStyle text-lg "
+              className="sendButton buttonStyle text-lg flex items-center justify-center relative"
               style={{ width: "30rem" }}
               disabled={loading}
-              onClick={startAnimating}
             >
-              <span className="buttonText">Send Message</span>
+              <span className="buttonText">
+                {loading ? status || "Sending..." : "Send Message"}
+              </span>
+              <span
+                className="failedText absolute inset-0 top-[18%] "
+                style={{ opacity: 0 }}
+              >
+                Failed
+              </span>
             </motion.button>
             <motion.svg
               fill="none"

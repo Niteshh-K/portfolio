@@ -2,11 +2,12 @@ import React from "react";
 import Timeline from "../Shared/Timeline";
 import { experienceData } from "@/utils/constants";
 
+const MemoTimeline = React.memo(Timeline);
 const Experience = () => {
   return (
     <div className="sectionContainer bg-neutral-900">
       <div className="sectionHeader">Experience</div>
-      <Timeline data={experienceData} />
+      <MemoTimeline data={experienceData} />
     </div>
   );
 };

@@ -1,7 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { techStack } from "@/utils/constants";
-import DeveloperIllustration from "../Shared/DeveloperIllustration";
+import dynamic from "next/dynamic";
+import Image from "next/image";
+const DeveloperIllustration = dynamic(
+  () => import("../Shared/DeveloperIllustration"),
+  { ssr: false }
+);
 
 const About = () => {
   return (
@@ -102,12 +107,13 @@ const About = () => {
             initial={{ scale: 0.95 }}
             whileHover={{ scale: 1.05 }}
           >
-            <img
+            <Image
               src={tech.icon.src}
               className="object-cover object-center w-full bg-neutral-200 rounded-xl"
               alt={tech.title}
               width={70}
               height={50}
+              loading="lazy"
             />
           </motion.div>
         ))}
