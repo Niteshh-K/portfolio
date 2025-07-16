@@ -14,7 +14,6 @@ export default function Home() {
       <About />
       <Experience />
       <Contact />
-      {/* <div className="h-500 bg-amber-100"></div> */}
     </>
   );
 }

@@ -79,7 +79,7 @@ const Intro = () => {
                   ease: "easeInOut",
                   stiffness: 100,
                 }}
-                className="buttonStyle"
+                className="border-s-neutral-200 border-1 rounded-sm bg-transparent px-6 py-2 hidden md:block"
               >
                 <Link href="#about">Know More</Link>
               </motion.button>

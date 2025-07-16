@@ -122,7 +122,7 @@ const Contact = () => {
     <div
       ref={containerRef}
       id="#contact"
-      className="sectionContainer bg-black h-screen flex flex-col justify-center items-center"
+      className="sectionContainer bg-black h-screen flex flex-col justify-center items-center overflow-hidden"
     >
       <div className="sectionHeader text-left w-full">Contact me</div>
       <motion.div
@@ -135,7 +135,7 @@ const Contact = () => {
       >
         <form
           ref={formRef}
-          className="md:w-[30%] rounded-xl bg-neutral-900 p-6 flex flex-col gap-4 border border-neutral-800 shadow-[0px_0px_12px_0px_#f7fafc]"
+          className=" w-full md:w-[30%] rounded-xl bg-neutral-900 p-6 flex flex-col gap-4 border border-neutral-800 shadow-[0px_0px_12px_0px_#f7fafc]"
           onSubmit={sendEmail}
         >
           <input

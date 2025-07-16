@@ -67,87 +67,89 @@ export const experienceData = [
     projects: [
       <ul
         key="tcs-projects-list"
-        className="list-disc pl-6 space-y-2 text-base text-neutral-200"
+        className="list-disc pl-6 space-y-2 text-neutral-200"
       >
         <li key="reporting-system">
           Built an efficient{" "}
-          <span className="font-bold text-cyan-300">reporting system</span> for
+          <span className="font-bold text-[#2c7ce6]">reporting system</span> for
           advisory adoption, time-series trends, and efficiency, providing{" "}
-          <span className="font-bold text-cyan-300">real-time insights</span>{" "}
+          <span className="font-bold text-[#2c7ce6]">real-time insights</span>{" "}
           that helped increase{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             production efficiency by 1%
           </span>{" "}
           and boost revenue.
         </li>
         <li key="equipment-health-monitoring">
           Designed a full-stack{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             Equipment Health Monitoring System
           </span>{" "}
           that analyzes sensor data and predicts asset failures using a{" "}
-          <span className="font-bold text-cyan-300">pre-trained model</span>.
+          <span className="font-bold text-[#2c7ce6]">pre-trained model</span>.
           Developed an intuitive interface and strong back-end to provide
           real-time insights for maintenance.
         </li>
         <li key="product-simulation-ui">
           Built a{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             UI for product simulation
           </span>
           , allowing users to modify material grades, assess feasibility, and
           analyze environmental impact like{" "}
-          <span className="font-bold text-cyan-300">carbon footprint</span> of
+          <span className="font-bold text-[#2c7ce6]">carbon footprint</span> of
           the final product.
         </li>
         <li key="open-source-models-ui">
           Developed a{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             UI for open-source approved models
           </span>
           , allowing users to register, access, and interact with them easily.
           The platform provides key details like the model&apos;s{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             purpose, size, and specs
           </span>
           , and the URL can be used for integration anywhere.
         </li>
         <li key="code-generator-ui">
           Developed a{" "}
-          <span className="font-bold text-cyan-300">code generator UI</span>{" "}
+          <span className="font-bold text-[#2c7ce6]">code generator UI</span>{" "}
           that takes user prompts and writes code in various programming
           languages. The platform can also{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             find bugs, explain code
           </span>
           , and allows users to interact using voice through its{" "}
-          <span className="font-bold text-cyan-300">voice-to-text feature</span>
+          <span className="font-bold text-[#2c7ce6]">
+            voice-to-text feature
+          </span>
           .
         </li>
         <li key="data-generation-training-ui">
           Created a{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             UI for data generation and model training
           </span>{" "}
           based on existing datasets, trains models by adjusting various{" "}
-          <span className="font-bold text-cyan-300">hyperparameters</span>, and
+          <span className="font-bold text-[#2c7ce6]">hyperparameters</span>, and
           tests the results to evaluate the effectiveness of the trained models.
         </li>
         <li key="ai-media-summarization">
           Developing an{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             AI-powered document and media summarization platform
           </span>{" "}
           with an interactive chat UI. It allows users to{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             summarize and query text documents, caption audio/video files
           </span>
           , and engage in{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             context-aware conversations
           </span>{" "}
           based on the media. The system leverages{" "}
-          <span className="font-bold text-cyan-300">
+          <span className="font-bold text-[#2c7ce6]">
             LLMs for intelligent insights
           </span>
           , making information retrieval seamless and efficient.

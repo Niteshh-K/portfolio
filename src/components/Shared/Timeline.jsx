@@ -35,19 +35,19 @@ export default function Timeline({ data, offset }) {
       <div ref={ref} className="relative  mx-auto pb-5">
         {data.map((item, index) => (
           <div key={index} className="w-full md:pt-20">
-            <div className="sticky flex flex-col pl-10 md:pl-0 md:flex-row  z-5 items-start top-40 self-start">
+            <div className="sticky flex flex-col pl-10 md:pl-0   z-5 items-start top-40 self-start">
               <div className="h-10 absolute -left-5 md:left-1 w-10 rounded-full bg-white flex items-center justify-center">
                 <div className="h-4 w-4 rounded-full bg-neutral-200 dark:bg-neutral-800 border border-neutral-300 p-2" />
               </div>
               <div className="pl-5.5 md:pl-20 ">
-                <h3 className="text-xl md:text-3xl  font-bold text-neutral-500">
+                <h3 className="text-xl md:text-3xl  font-bold text-neutral-300">
                   {item.company}&nbsp;({item.from} - {item.to})
                 </h3>
-                <span className="text-neutral-400 font-normal text-lg">
+                <span className="text-neutral-300 font-normal text-lg">
                   {item.role}
                 </span>
               </div>
-              <div className="text-white md:ml-10 py-4 md:w-[80%]">
+              <div className="text-white ml-4 md:pl-18 py-4 text-md">
                 {Array.isArray(item.projects)
                   ? item.projects.map((project, idx) =>
                       React.isValidElement(project) ? (
