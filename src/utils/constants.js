@@ -38,7 +38,7 @@ export const techStack = [
 export const navItems = [
   {
     label: "Home",
-    href: "/",
+    href: "#home",
     icon: <RiHome8Line style={{ fontSize: "1.5em" }} />,
   },
   {
@@ -48,7 +48,7 @@ export const navItems = [
   },
   {
     label: "Experience",
-    href: "/#experience",
+    href: "#experience",
     icon: <PiPresentationBold style={{ fontSize: "1.5em" }} />,
   },
   {
@@ -65,10 +65,7 @@ export const experienceData = [
     role: "Full Stack Developer",
     company: "Tata Consultancy Services",
     projects: [
-      <ul
-        key="tcs-projects-list"
-        className="list-disc pl-6 space-y-2 text-neutral-200"
-      >
+      <ul key="tcs-projects-list" className="list-disc pl-6 text-justify">
         <li key="reporting-system">
           Built an efficient{" "}
           <span className="font-bold text-[#2c7ce6]">reporting system</span> for

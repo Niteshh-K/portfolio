@@ -25,7 +25,7 @@ const About = () => {
         >
           <DeveloperIllustration />
         </motion.div>
-        <div className="w-full leading-8 pt-15">
+        <div className="w-full leading-8 pt-15 text-justify">
           <motion.h2
             initial={{ opacity: 0, y: -10 }}
             whileInView={{

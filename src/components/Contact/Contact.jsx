@@ -121,7 +121,7 @@ const Contact = () => {
   return (
     <div
       ref={containerRef}
-      id="#contact"
+      id="contact"
       className="sectionContainer bg-black h-screen flex flex-col justify-center items-center overflow-hidden"
     >
       <div className="sectionHeader text-left w-full">Contact me</div>

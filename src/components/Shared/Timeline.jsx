@@ -47,7 +47,7 @@ export default function Timeline({ data, offset }) {
                   {item.role}
                 </span>
               </div>
-              <div className="text-white ml-4 md:pl-18 py-4 text-md">
+              <div className="text-neutral-400 ml-4 md:pl-18 py-4 ">
                 {Array.isArray(item.projects)
                   ? item.projects.map((project, idx) =>
                       React.isValidElement(project) ? (
