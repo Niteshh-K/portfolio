@@ -34,7 +34,7 @@ const Header = () => {
         width: widthPercentage,
         borderRadius: borderRadius,
       }}
-      className="w-full bg-gray-200 h-[60px] flex justify-between items-center px-2 fixed inset-0 mx-auto z-10"
+      className="w-full bg-gray-800 h-[60px] flex justify-between items-center px-2 fixed inset-0 mx-auto z-10"
     >
       <Image src={UserIcon.src} alt="user-icon" width={50} height={50} />
       <div className="flex">
@@ -49,10 +49,10 @@ const Header = () => {
             {current === idx && (
               <motion.div
                 layoutId="hover"
-                className="absolute inset-0 bg-black z-10 rounded-full px-3 py-4"
+                className="absolute inset-0 bg-fuchsia-600 z-10 rounded-full px-3 py-4"
               />
             )}
-            <div className="text-neutral-500 relative z-20 flex items-center gap-1">
+            <div className="text-neutral-200 relative z-20 flex items-center gap-1">
               <span className="md:hidden">{item.icon}</span>
               <span className="hidden md:inline-block font-semibold">
                 {item.label}

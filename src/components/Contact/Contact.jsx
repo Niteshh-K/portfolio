@@ -37,7 +37,7 @@ const Contact = () => {
     animate(
       ".sendButton",
       {
-        width: "15rem",
+        width: "12rem",
         borderRadius: "4px",
         background: "var(--color-fuchsia-500)",
       },
@@ -68,7 +68,7 @@ const Contact = () => {
     animate(
       ".sendButton",
       {
-        width: "15rem",
+        width: "12rem",
         borderRadius: "4px",
         background: "var(--color-fuchsia-500)",
       },
@@ -79,13 +79,19 @@ const Contact = () => {
     await animate(".check-icon path", { pathLength: 0, delay: 2 });
   };
 
+  // Updated form state to use subject instead of inquiry
   const [form, setForm] = React.useState({
     name: "",
     email: "",
     phone: "",
-    inquiry: "",
+    subject: "",
     message: "",
   });
+  const isFormValid =
+    form.name.trim() &&
+    form.email.trim() &&
+    form.subject.trim() &&
+    form.message.trim();
   const [status, setStatus] = React.useState("");
   const [loading, setLoading] = React.useState(false);
 
@@ -107,7 +113,7 @@ const Contact = () => {
         () => {
           setLoading(false);
           setStatus("Message sent successfully");
-          setForm({ name: "", email: "", phone: "", inquiry: "", message: "" });
+          setForm({ name: "", email: "", phone: "", subject: "", message: "" });
           startAnimating();
         },
         (error) => {
@@ -122,7 +128,7 @@ const Contact = () => {
     <div
       ref={containerRef}
       id="contact"
-      className="sectionContainer bg-black h-screen flex flex-col justify-center items-center overflow-hidden"
+      className="sectionContainer bg-black h-screen flex flex-col gap-1 items-center overflow-hidden"
     >
       <div className="sectionHeader text-left w-full">Contact me</div>
       <motion.div
@@ -131,17 +137,17 @@ const Contact = () => {
           opacity: opacityTransform,
           y: transformY,
         }}
-        className="flex items-center justify-center w-full h-full"
+        className="flex items-center flex-1 justify-center w-full "
       >
         <form
           ref={formRef}
-          className=" w-full md:w-[30%] rounded-xl bg-neutral-900 p-6 flex flex-col gap-4 border border-neutral-800 shadow-[0px_0px_12px_0px_#f7fafc]"
+          className="w-full md:w-[35%] rounded-xl bg-neutral-900 p-6 flex flex-col gap-4 border border-neutral-800 shadow-[0px_0px_12px_0px_#f7fafc]"
           onSubmit={sendEmail}
         >
           <input
             type="text"
             placeholder="Name"
-            className="inputStyle "
+            className="inputStyle"
             name="name"
             value={form.name}
             onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
@@ -151,7 +157,7 @@ const Contact = () => {
             type="email"
             placeholder="Email"
             name="email"
-            className="inputStyle "
+            className="inputStyle"
             value={form.email}
             onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
             required
@@ -160,48 +166,45 @@ const Contact = () => {
             type="tel"
             name="phone"
             placeholder="Phone (optional)"
-            className="inputStyle "
+            className="inputStyle"
             value={form.phone}
             onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
           />
-          <select
-            className="inputStyle "
-            value={form.inquiry}
-            name="inquiry_type"
+          <input
+            type="text"
+            placeholder="Subject"
+            className="inputStyle"
+            name="subject"
+            value={form.subject}
             onChange={(e) =>
-              setForm((f) => ({ ...f, inquiry: e.target.value }))
+              setForm((f) => ({ ...f, subject: e.target.value }))
             }
             required
-          >
-            <option value="">Inquiry Type</option>
-            <option value="general">General</option>
-            <option value="collaboration">Collaboration</option>
-            <option value="feedback">Feedback</option>
-            <option value="other">Other</option>
-          </select>
+          />
           <textarea
             placeholder="Message"
             rows={5}
             name="message"
-            className="inputStyle  resize-none"
+            className="inputStyle resize-none"
             value={form.message}
             onChange={(e) =>
               setForm((f) => ({ ...f, message: e.target.value }))
             }
             required
           />
-          <div className="relative mx-auto w-[15rem] flex justify-center items-center py-3">
+          <div className="relative mx-auto w-[12rem] flex justify-center items-center py-3">
             <motion.button
               type="submit"
-              className="sendButton buttonStyle text-lg flex items-center justify-center relative"
-              style={{ width: "15rem" }}
-              disabled={loading}
+              className={`sendButton buttonStyle text-lg flex items-center justify-center relative w-full ${
+                loading || !isFormValid ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={loading || !isFormValid}
             >
               <span className="buttonText">
                 {loading ? status || "Sending..." : "Send Message"}
               </span>
               <span
-                className="failedText absolute inset-0 top-[18%] "
+                className="failedText absolute inset-0 top-[18%]"
                 style={{ opacity: 0 }}
               >
                 Failed
@@ -241,7 +244,6 @@ const Contact = () => {
             <a href="mailto:niten701rai@gmail.com" aria-label="Email">
               <Image src={EmailIcon.src} alt="Email" width={28} height={28} />
             </a>
-
             <a
               className="bg-neutral-100 rounded-sm"
               href="https://github.com/Niteshh-K"

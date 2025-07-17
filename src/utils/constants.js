@@ -35,26 +35,28 @@ export const techStack = [
   { title: "Docker", icon: DockerIcon },
 ];
 
+const navItemStyle = { fontSize: "1.5em", color: "text-neutral-200" };
+
 export const navItems = [
   {
     label: "Home",
     href: "#home",
-    icon: <RiHome8Line style={{ fontSize: "1.5em" }} />,
+    icon: <RiHome8Line style={navItemStyle} />,
   },
   {
     label: "About",
     href: "#about",
-    icon: <PiInfoBold style={{ fontSize: "1.5em" }} />,
+    icon: <PiInfoBold style={navItemStyle} />,
   },
   {
     label: "Experience",
     href: "#experience",
-    icon: <PiPresentationBold style={{ fontSize: "1.5em" }} />,
+    icon: <PiPresentationBold style={navItemStyle} />,
   },
   {
     label: "Contact",
     href: "#contact",
-    icon: <RiContactsBookLine style={{ fontSize: "1.5em", fontWeight: 1 }} />,
+    icon: <RiContactsBookLine style={navItemStyle} />,
   },
 ];
 
