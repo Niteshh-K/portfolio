@@ -86,10 +86,9 @@ const About = () => {
             // transition={{ duration: 0.3, delay: 1.4 }}
             className="text-neutral-400 text-md mt-4 hidden md:block  "
           >
-            Outside of coding, I enjoy exploring new technologies, contributing
-            to open-source projects, and staying updated with industry trends. I
-            believe in the power of community and am always eager to connect
-            with fellow developers.
+            Outside of coding, I enjoy exploring new technologies and staying
+            updated with industry trends. I believe in the power of community
+            and am always eager to connect with fellow developers.
           </motion.p>
         </div>
       </div>

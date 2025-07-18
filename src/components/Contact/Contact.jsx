@@ -11,16 +11,12 @@ const Contact = () => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start end", "end start"],
+    offset: ["start end", "start start"],
   });
 
-  const opacityTransform = useTransform(
-    scrollYProgress,
-    [0, 0.5, 1],
-    [0, 1, 0]
-  );
-  const rotateTransform = useTransform(scrollYProgress, [0, 1], [-30, 30]);
-  const transformY = useTransform(scrollYProgress, [0, 1], ["50%", "-50%"]);
+  const opacityTransform = useTransform(scrollYProgress, [0, 0.5], [0, 1]);
+  const rotateTransform = useTransform(scrollYProgress, [0, 1], [-30, 0]);
+  const transformY = useTransform(scrollYProgress, [0, 1], ["50%", "0%"]);
 
   const failAnimating = async () => {
     await animate(".buttonText", { opacity: 0 }, { duration: 0.1 });
